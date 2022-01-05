@@ -5,6 +5,7 @@ version: 2.1
 orbs:
   email: cinotify/email@1.0.4
   bats: circleci/bats@1.0
+  orb-tools: circleci/orb-tools@10.0
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -14,3 +15,16 @@ workflows:
       - bats/run:
           path: ./src/tests
       - email/send
+      - orb-tools/dev-promote-prod-from-commit-subject:
+          orb-name: cinotify/email
+          add-pr-comment: false
+          fail-if-semver-not-indicated: true
+          publish-version-tag: true
+          requires:
+            - email/send
+          filters:
+            branches:
+              only:
+                - ma
+
+
