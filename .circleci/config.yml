@@ -27,4 +27,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - email
+      - email/greet
