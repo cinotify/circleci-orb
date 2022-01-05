@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  cinotify: cinotify/email
+  email: cinotify/email
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
@@ -17,7 +17,7 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - cinotify/email
+      - email
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
