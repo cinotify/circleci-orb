@@ -1,0 +1,69 @@
+version: 2.1
+description: |
+    Zero-congifuration email notifications
+display:
+    home_url: https://www.cinotify.cc/
+    source_url: https://www.github.com/jshawl/cinotify-orb
+commands:
+    greet:
+        description: |
+            This command echos "Hello World" using file inclusion.
+        parameters:
+            to:
+                default: World
+                description: Hello to whom?
+                type: string
+        steps:
+            - run:
+                command: |
+                    Greet() {
+                        echo Hello "${PARAM_TO}"
+                    }
+
+                    # Will not run if sourced for bats-core tests.
+                    # View src/tests for more information.
+                    ORB_TEST_ENV="bats-core"
+                    if [ "${0#*$ORB_TEST_ENV}" == "$0" ]; then
+                        Greet
+                    fi
+                environment:
+                    PARAM_TO: <<parameters.to>>
+                name: Hello Greeting
+executors:
+    default:
+        description: |
+            This is a sample executor using Docker and Node.
+        docker:
+            - image: cimg/node:<<parameters.tag>>
+        parameters:
+            tag:
+                default: lts
+                description: |
+                    Pick a specific cimg/node image variant: https://hub.docker.com/r/cimg/node/tags
+                type: string
+jobs:
+    send:
+        description: |
+            Send an email notification
+        executor: default
+        parameters:
+            to:
+                default: World
+                description: Hello to whom?
+                type: string
+        steps:
+            - greet:
+                to: << parameters.to >>
+examples:
+    example:
+        description: |
+            Sample example description.
+        usage:
+            version: "2.1"
+            orbs:
+                <orb-name>: <namespace>/<orb-name>@1.2.3
+            workflows:
+                use-my-orb:
+                    jobs:
+                        - <orb-name>/<job-name>
+
