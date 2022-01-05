@@ -17,6 +17,7 @@ workflows:
       - email/send
       - orb-tools/dev-promote-prod-from-commit-subject:
           orb-name: cinotify/email
+          context: main
           add-pr-comment: false
           fail-if-semver-not-indicated: true
           publish-version-tag: false
