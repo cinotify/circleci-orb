@@ -15,6 +15,7 @@ workflows:
       - bats/run:
           path: ./src/tests
       - email/send
+      - orb-tools/lint
       - orb-tools/publish-dev:
           orb-name: cinotify/email
           context: main
