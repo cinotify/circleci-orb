@@ -19,7 +19,7 @@ workflows:
           orb-name: cinotify/email
           add-pr-comment: false
           fail-if-semver-not-indicated: true
-          publish-version-tag: true
+          publish-version-tag: false
           requires:
             - email/send
           filters:
