@@ -17,7 +17,6 @@ jobs:
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
-      - email/greet
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
@@ -28,3 +27,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - email/greet
