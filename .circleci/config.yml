@@ -30,6 +30,7 @@ workflows:
           publish-version-tag: false
           requires:
             - email/send
+            - orb-tools/publish-dev
           filters:
             branches:
               only:
