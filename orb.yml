@@ -57,13 +57,13 @@ jobs:
 examples:
     example:
         description: |
-            Sample example description.
+            Send an email from a job.
         usage:
             version: "2.1"
             orbs:
-                <orb-name>: <namespace>/<orb-name>@1.2.3
+                email: cinotify/email@1.2.3
             workflows:
                 use-my-orb:
                     jobs:
-                        - <orb-name>/<job-name>
+                        - email/send
 
