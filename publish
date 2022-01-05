@@ -1,0 +1,4 @@
+#!/bin/bash
+
+circleci orb pack src/ > orb.yml
+circleci publish orb.yml cinotify/email@1.0.4
