@@ -1,15 +1,20 @@
 description: >
-  Send an email notification
-# What will this job do?
-# Descriptions should be short, simple, and clear.
+  Send an email notification.
 
 executor: default
 
 parameters:
   to:
     type: string
-    default: "World"
-    description: "Hello to whom?"
+    description: "Email recipient"
+  subject:
+    type: string
+    description: "Email subject"
+  body:
+    type: string
+    description: "Email body"
 steps:
-  - greet:
+  - send:
       to: << parameters.to >>
+      subject: << parameters.subject >>
+      body: << parameters.body >>
