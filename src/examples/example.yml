@@ -8,6 +8,10 @@ usage:
   orbs:
     email: cinotify/email@1.2.3
   workflows:
-    use-my-orb:
+    example-workflow:
       jobs:
-        - email/send
+        - email/send:
+            to: 'example@example.com'
+            subject: 'CircleCI job started'
+            body: 'Configure this notification at https://www.cinotify.cc/'
+

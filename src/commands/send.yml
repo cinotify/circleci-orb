@@ -1,0 +1,22 @@
+description: >
+  This command sends an email.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
+parameters:
+  to:
+    type: string
+    description: "Email recipient"
+  subject:
+    type: string
+    description: "Email subject"
+  body:
+    type: string
+    description: "Email body"
+steps:
+  - run:
+      environment:
+        PARAM_TO: <<parameters.to>>
+        PARAM_SUBJECT: <<parameters.subject>>
+        PARAM_BODY: <<parameters.body>>
+      name: Deliver email
+      command: <<include(scripts/send.sh)>>
