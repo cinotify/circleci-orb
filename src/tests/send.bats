@@ -6,5 +6,5 @@ setup() {
 
 @test '1: Send an email' {
     # TODO mock curl w/ bats-mock or change the test lib to js and import the js client
-    [ "1" == "1" ]
+    [ "Hello" == "Hello" ]
 }

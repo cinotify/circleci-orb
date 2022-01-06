@@ -14,14 +14,14 @@ workflows:
     jobs:
       - bats/run:
           path: ./src/tests
-      - email/send:
-          to: 'jesse@jesse.sh'
-          subject: 'CircleCI is publishing a new orb version'
-          body: 'https://circleci.com/developer/orbs/orb/cinotify/email'
-          filters:
-            branches:
-              only:
-                - ma
+      # - email/send:
+      #     to: 'jesse@jesse.sh'
+      #     subject: 'CircleCI is publishing a new orb version'
+      #     body: 'https://circleci.com/developer/orbs/orb/cinotify/email'
+      #     filters:
+      #       branches:
+      #         only:
+      #           - ma
       - orb-tools/lint
       - orb-tools/pack
       - orb-tools/publish-dev:
@@ -38,7 +38,7 @@ workflows:
           fail-if-semver-not-indicated: true
           publish-version-tag: false
           requires:
-            - email/send
+            # - email/send
             - orb-tools/publish-dev
           filters:
             branches:
