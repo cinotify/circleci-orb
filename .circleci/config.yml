@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  email: cinotify/email@ma
+  email: cinotify/email@1.2.0
   bats: circleci/bats@1.0
   orb-tools: circleci/orb-tools@10.0
 
