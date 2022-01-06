@@ -18,10 +18,10 @@ workflows:
           to: 'jesse@jesse.sh'
           subject: 'CircleCI is publishing a new orb version'
           body: 'https://circleci.com/developer/orbs/orb/cinotify/email'
-          # filters:
-          #   branches:
-          #     only:
-          #       - ma
+          filters:
+            branches:
+              only:
+                - ma
       - orb-tools/lint
       - orb-tools/pack
       - orb-tools/publish-dev:
