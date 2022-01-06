@@ -1,10 +1,6 @@
 Send() {
-    curl POST 'https://www.cinotify.cc/api/notify' \
-        --data-raw '{
-            "to": "${PARAM_TO}",
-            "subject": "${PARAM_SUBJECT}",
-            "body": "${PARAM_BODY}"
-        }'
+    curl --location --request POST 'https://www.cinotify.cc/api/notify' \
+        -d "to=${PARAM_TO}&subject=${PARAM_SUBJECT}&body=${PARAM_BODY}"
 }
 
 # Will not run if sourced for bats-core tests.
